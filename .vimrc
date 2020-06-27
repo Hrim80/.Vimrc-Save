@@ -1,3 +1,4 @@
+
 "---- General Settings-------
 set number
 set ruler
@@ -5,6 +6,7 @@ set showcmd
 set incsearch
 set hlsearch
 set backspace=indent,eol,start
+set clipboard=unnamed
 
 syntax on
 
@@ -28,6 +30,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-fugitive'
 
 
 call plug#end()
@@ -36,7 +40,7 @@ call plug#end()
 
 " ----- altercation/vim-colors-solarized settings -----
 " Toggle this to "light" for light colorscheme
-set background=light
+set background=dark
 
 " Uncomment the next line if your terminal is not configured for solarized
 let g:solarized_termcolors=256
@@ -62,6 +66,9 @@ let g:airline_detect_paste=1
 " Show airline for tabs too
 let g:airline#extensions#tabline#enabled = 1
 
+let g:SimpylFold_docstring_preview=1
+
+
 " ======= Key mappings ========
 
 nmap <F6> :NERDTreeToggle<CR>
@@ -76,3 +83,8 @@ nmap 9 :tabp <CR>
 nmap 0 :tabn <CR>
 nmap q :q! <CR>
 nmap s :w <CR>
+nmap <space> za
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
