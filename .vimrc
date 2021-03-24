@@ -32,7 +32,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-fugitive'
-
+Plug 'https://github.com/sonph/onehalf'
+Plug 'flazz/vim-colorschemes'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'frazrepo/vim-rainbow'
+Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -40,13 +45,20 @@ call plug#end()
 
 " ----- altercation/vim-colors-solarized settings -----
 " Toggle this to "light" for light colorscheme
-set background=dark
+"set background=dark
 
 " Uncomment the next line if your terminal is not configured for solarized
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
+"let g:molokai_original = 1
 
 " Set the colorscheme
-"colorscheme solarized 
+colorscheme tender
+
+"let g:airline_theme='onehalfdark'
+
+let g:lightline = {
+      \ 'colorscheme': 'landscape',
+      \ }
 
 
 " ----- bling/vim-airline settings -----
@@ -68,10 +80,15 @@ let g:airline#extensions#tabline#enabled = 1
 
 let g:SimpylFold_docstring_preview=1
 
+let g:airline#extensions#tabline#formatter = 'default'  " f/p/file-name.js
+let g:airline#extensions#tabline#formatter = 'jsformatter' " path-to/f
+let g:airline#extensions#tabline#formatter = 'unique_tail' " file-name.js
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved' " f/p/file-name.js
+
 
 " ======= Key mappings ========
 
-nmap <F6> :NERDTreeToggle<CR>
+nmap <tab> :NERDTreeToggle<CR>
 noremap <C-V> <ESC>:paste<CR><S-Insert><ESC>:nopaste<CR>
 nmap <F5> :Files<CR>
 nmap \ dd
@@ -84,7 +101,18 @@ nmap 0 :tabn <CR>
 nmap q :q! <CR>
 nmap s :w <CR>
 nmap <space> za
+nmap a :wq <CR>
+nmap <s-h> :sp <CR>
+nmap <s-v> :vsp <CR>
+nmap + :vertical resize +2 <CR>
+nmap - :vertical resize -2 <CR>
+nmap * :resize +2 <CR>
+nmap / :resize -2 <CR>
+
 
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+
+"===========================
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
